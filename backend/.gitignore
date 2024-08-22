@@ -1,0 +1,28 @@
+# Node.js dependencies
+/node_modules
+/npm-debug.log
+/package-lock.json
+
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+config.env
+
+# Output of build process
+/build
+/dist
+
+# Temporary files
+*.tmp
+*.temp
+
+# Directory for test coverage reports
+/coverage
+
+# VS Code files
+.vscode/

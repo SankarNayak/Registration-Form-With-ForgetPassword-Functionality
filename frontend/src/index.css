@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+:root {
+  --main-accent: blanchedalmond;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("/images/wallpaperflare.com_wallpaper.jpg"),
+    linear-gradient(
+      180deg,
+      rgb(219, 193, 79) 0%,
+      rgb(213, 153, 74) 50%,
+      rgb(253, 96, 5) 100%
+    );
+  background-position: center;
+  background-size: cover;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.container {
+  width: 410px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  text-transform: capitalize;
+  border: 1px solid rgba(222, 184, 135, 0.5);
+  box-shadow: burlywood 0px 0px 10px;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  transition: all 0.3s ease-in-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--main-accent);
+  font-family: "Rye", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: var(--main-accent);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+  text-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--main-accent);
+  text-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+input::placeholder {
+  color: var(--main-accent);
+  text-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  font-size: 1.2rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0 30px 0;
+  font-size: 12px;
+  color: var(--main-accent);
+  text-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+#Save-login {
+  accent-color: var(--main-accent);
+}
+
+.forgot label {
+  display: flex;
+  align-items: center;
+}
+
+.forgot label p {
+  margin-left: 8px;
+}
+
+.container a {
+  color: var(--main-accent);
+  text-decoration: none;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: var(--main-accent);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  color: var(--main-accent);
+  border-color: var(--main-accent);
+  background: rgba(255, 235, 205, 0.15);
+  box-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+.Create-account {
+  align-items: center;
+  margin-top: 30px;
+  display: flex;
+  font-size: small;
+  justify-content: space-evenly;
+  color: var(--main-accent);
+  text-shadow: var(--main-accent) 0px 0px 10px;
+}
+
+.goToHome {
+  background-color: burlywood;
+  margin-top: 27px;
+}
+
+.goToHome:hover {
+  color: burlywood;
+  border-color: burlywood;
+  background-color: rgba(222, 184, 135, 0.15);
+  box-shadow: burlywood 0px 0px 20px;
+}
+
+.loginRegisterButton {
+  background-color: sandybrown;
+  padding: 10px 14px;
+  font-size: small;
+}
+
+.loginRegisterButton:hover {
+  color: sandybrown;
+  border-color: sandybrown;
+  background-color: rgba(160, 81, 45, 0.15);
+  box-shadow: sandybrown 0px 0px 20px;
+}
