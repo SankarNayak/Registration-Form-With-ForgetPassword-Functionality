@@ -36,8 +36,6 @@ const Login = () => {
         body: JSON.stringify(user),
       });
 
-      console.log("login form", response);
-
       const res_data = await response.json();
 
       if (response.ok) {

@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   let isLoggedIn = !!token;
-  console.log(isLoggedIn);
 
   return (
     <AuthContext.Provider

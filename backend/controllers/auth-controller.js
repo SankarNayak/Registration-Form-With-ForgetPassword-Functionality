@@ -24,7 +24,6 @@ const home = async (req, res) => {
 const register = async (req, res) => {
   try {
     const { username, email, phone, password } = req.body;
-    console.log(req.body);
 
     if (!username || !email || !phone || !password) {
       return res
@@ -88,7 +87,6 @@ const login = async (req, res) => {
 const user = async (req, res) => {
   try {
     const userData = req.user;
-    console.log(userData);
     return res.status(200).json({ userData });
   } catch (error) {
     console.log(` error from user route ${error}`);
@@ -106,7 +104,9 @@ const forgotPassword = async (req, res) => {
     const userExist = await User.findOne({ email });
 
     if (!userExist) {
-      return res.status(400).json({ message: "No account with that email address exists." });
+      return res
+        .status(400)
+        .json({ message: "No account with that email address exists." });
     }
 
     const token = await userExist.generateResetPasswordToken();
@@ -114,9 +114,9 @@ const forgotPassword = async (req, res) => {
     const resetPasswordUrl = `http://localhost:5173/reset-password/${token}`;
 
     const mailOptions = {
-      from: 'your-gmail',
+      from: "your-gmail",
       to: email,
-      subject: 'Password Reset Request',
+      subject: "Password Reset Request",
       text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
               Please click on the following link, or paste this into your browser to complete the process within one hour of receiving it:\n\n
               ${resetPasswordUrl}\n\n
@@ -127,12 +127,18 @@ const forgotPassword = async (req, res) => {
       if (error) {
         res.status(500).json({ message: "Error sending email" });
       } else {
-        console.log('Email sent: ' + info.response);
-        res.status(200).json({ message: "An email has been sent to " + email + " with further instructions." });
+        res.status(200).json({
+          message:
+            "An email has been sent to " +
+            email +
+            " with further instructions.",
+        });
       }
     });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong. Please try again later." });
+    res
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later." });
   }
 };
 
@@ -148,19 +154,23 @@ const resetPassword = async (req, res) => {
     const decoded = await User.verifyResetPasswordToken(token);
 
     if (!decoded) {
-      return res.status(400).json({ message: "Invalid or expired password reset token." });
+      return res
+        .status(400)
+        .json({ message: "Invalid or expired password reset token." });
     }
 
-    const userFound = await User.findById(decoded.userId); 
+    const userFound = await User.findById(decoded.userId);
 
     userFound.password = newPassword;
     userFound.resetPasswordToken = undefined;
     userFound.resetPasswordExpires = undefined;
-    const saveResult = await userFound.save();
+    await userFound.save();
 
     res.status(200).json({ message: "Password reset successful." });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong. Please try again later." });
+    res
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later." });
   }
 };
 

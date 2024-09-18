@@ -37,7 +37,6 @@ const Register = () => {
       });
 
       const res_data = await response.json();
-      console.log("res from server", res_data.extraDetails);
 
       if (response.ok) {
         storeToken(res_data.token);
@@ -49,8 +48,6 @@ const Register = () => {
           res_data.extraDetails ? res_data.extraDetails : res_data.message
         );
       }
-
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
